@@ -1,3 +1,4 @@
+//206 单链表反转
 public class ReverseLinkedList {
     public ListNode reverseList(ListNode head) {
         if(head == null) return head;
@@ -11,6 +12,16 @@ public class ReverseLinkedList {
         }
         head.next = null;
         return pre;
+    }
+
+    public ListNode reverseList2(ListNode head) {
+        if(head == null || head.next == null){
+            return head;
+        }
+        ListNode tail = reverseList2(head.next);
+        head.next.next = head;
+        head.next = null;
+        return tail;
     }
 
 }

@@ -6,22 +6,29 @@ import java.util.concurrent.Executors;
 public class Main {
 
     public static void main(String[] args) {
-//        ListNode node = new ListNode(1);
-//        ListNode head = node;
-//        node.next = new ListNode(4);
-//        node = node.next;
-//        node.next = new ListNode(3);
-//        node = node.next;
-//        node.next = new ListNode(2);
-//        node = node.next;
+        ListNode node = new ListNode(4);
+        ListNode head = node;
+        node.next = new ListNode(2);
+        node = node.next;
+        node.next = new ListNode(1);
+        node = node.next;
+        node.next = new ListNode(3);
+        node = node.next;
 //        node.next = new ListNode(5);
 //        node = node.next;
+//        node.next = new ListNode(6);
+//        node = node.next;
+//        node.next = new ListNode(7);
+//        node = node.next;
+
+        InsertionSortList reorderList = new InsertionSortList();
+        reorderList.insertionSortList(head);
 //        node.next = new ListNode(2);
 //        node = node.next;
 //        PartitionList partitionList = new PartitionList();
 //        partitionList.partition(head,3);
-        SpiralMatrixII spiralMatrixII = new SpiralMatrixII();
-        spiralMatrixII.generateMatrix(3);
+//        SpiralMatrixII spiralMatrixII = new SpiralMatrixII();
+//        spiralMatrixII.generateMatrix(3);
 
 
 //
