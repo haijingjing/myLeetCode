@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class Node {
 //    int val;
 //    Node next;
@@ -20,6 +22,7 @@ public class Node {
     public Node right;
     public Node next;
     public Node random;
+    public List<Node> children;
 
     public Node() {}
     public Node(int _val) {val = _val;}
@@ -34,5 +37,9 @@ public class Node {
         val = _val;
         next = _next;
         random = _random;
+    }
+    public Node(int _val,List<Node> _children) {
+        val = _val;
+        children = _children;
     }
 }
