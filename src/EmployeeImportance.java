@@ -2,33 +2,27 @@ import java.util.*;
 
 //690 雇员权重
 public class EmployeeImportance {
+    HashMap<Integer, Employee> map = new HashMap<>();
     public int getImportance(List<Employee> employees, int id) {
-        Employee target = this.findEmployeeById(employees, id);
-        Queue<Employee> employeeQueue = new LinkedList<>();
-        employeeQueue.add(target);
-        int sum = 0;
-        while (!employeeQueue.isEmpty()){
-            int size = employeeQueue.size();
-            for(int i = 0; i < size; i++){
-                Employee current = employeeQueue.poll();
-                sum += current.importance;
-                for(Integer subid :current.subordinates){
-                    Employee subemployee = this.findEmployeeById(employees,subid);
-                    employeeQueue.add(subemployee);
-                }
-           }
-        }
-        return sum;
-    }
-    public Employee findEmployeeById(List<Employee> employees, int id){
         for(Employee employee: employees){
-            if(employee.id == id)
-                return employee;
+            map.put(employee.id, employee);
         }
-        return null;
+        return dfs(id);
+    }
+
+    private int dfs(int id) {
+        Employee employee = map.get(id);
+        int ans = employee.importance;
+        for(Integer subid : employee.subordinates){
+            ans += dfs(subid);
+        }
+        return ans;
     }
 
 //    public int getImportance2(List<Employee> employees, int id) {
+//        for(Employee employee: employees){
+//            map.put(employee.id, employee);
+//        }
 //
 //    }
 }
