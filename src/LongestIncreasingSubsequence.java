@@ -1,3 +1,4 @@
+//300 最长上升子序列
 import java.util.Arrays;
 
 public class LongestIncreasingSubsequence {
@@ -41,7 +42,7 @@ public class LongestIncreasingSubsequence {
             // 二分法查找, 也可以调用库函数如binary_search
             int lo = 0, hi = maxL;
             while(lo < hi) {
-                int mid = lo+(hi-lo)/2;
+                int mid = (lo + hi) >>> 1;
                 if(dp[mid] < num)
                     lo = mid+1;
                 else
